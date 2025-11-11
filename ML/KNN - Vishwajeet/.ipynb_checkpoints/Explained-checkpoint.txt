@@ -1,0 +1,88 @@
+Cell 1 – Import Libraries
+Imports all necessary libraries:
+numpy, pandas → for data handling and numerical operations.
+train_test_split → to split data into training and testing sets.
+KNeighborsClassifier → implements KNN algorithm.
+metrics → for model evaluation.
+seaborn → for data visualization.
+
+
+Cell 2 – Load Dataset
+Loads the diabetes.csv dataset into a DataFrame named data.
+This dataset contains health parameters of patients and a target column “Outcome” indicating whether they are diabetic (1) or not (0).
+
+Cell 3 – Display Dataset
+Displays the first 5 rows of the dataset to verify data loading and understand feature structure.
+
+
+Cell 4 – Check for Missing Values
+Checks for null (missing) values in each column.
+This ensures the dataset is clean or helps identify if imputation is needed.
+
+
+Cell 5 – Replace Zero Values with Mean
+Replaces invalid zero values (which mean missing data) in medical features with the mean value of each column.
+This step improves model accuracy and ensures clean data for training.
+
+
+Cell 6 – Define Features and Target
+Defines X = independent input features (like Glucose, BMI, etc.).
+Defines Y = target output variable (Outcome: 1 → diabetic, 0 → non-diabetic).
+
+
+Cell 7 – Split Data
+Splits dataset into:
+80% training data (for model learning)
+20% testing data (for performance evaluation)
+random_state=0 ensures reproducibility.
+
+
+Cell 8 – Outlier Detection
+Visualizes outliers using boxplots.
+Calculates IQR (Interquartile Range) to detect data points lying beyond 1.5 × IQR.
+Displays count of outliers per feature.
+Outlier detection helps understand noisy data.
+
+
+Cell 9 – Initialize KNN Model
+Creates a KNN classifier with k=5 neighbors and trains it on the training data.
+The model learns patterns by comparing feature distances among nearby data points.
+
+
+Cell 10 – Make Predictions
+Predicts the Outcome (0 or 1) for test samples using the trained KNN model.
+
+
+Cell 11 – Calculate Metrics
+Computes all evaluation metrics:
+Confusion Matrix → shows correct vs incorrect predictions.
+Accuracy → overall correct predictions ratio.
+Error Rate → incorrect prediction ratio.
+Precision, Recall, F1-score → advanced metrics for model quality.
+
+
+Cell 12 – Display Results
+Displays performance metrics for easy interpretation.
+Helps evaluate how well KNN performs on the diabetes dataset.
+
+
+Cell 13 – Test Different K Values
+Tests different values of K (3, 5, 7) to see which gives the best accuracy.
+Plots accuracy vs K-value curve for visual comparison.
+Helps determine the optimal K value for the dataset.
+
+
+
+ALGORITHM -- 
+1. Start the program.
+2. Import required libraries.
+3. Load the diabetes.csv dataset.
+4. Replace zero values with column means.
+5. Split the dataset into features (X) and target (Y).
+6. Split data into training (80%) and testing (20%) sets.
+7. Detect and visualize outliers using boxplots.
+8. Train the KNN classifier with chosen K (e.g., 5).
+9. Predict outcomes for the test set.
+10. Compute accuracy, error rate, precision, recall, F1-score, and confusion matrix.
+11. Test different K values and plot accuracy comparison.
+12. Stop the program.
