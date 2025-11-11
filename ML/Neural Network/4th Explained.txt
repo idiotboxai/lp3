@@ -1,0 +1,75 @@
+Cell 1 – Import Libraries - 
+This cell imports all the required libraries:
+pandas, numpy → for handling and analyzing data.
+train_test_split → to divide the dataset into training and testing parts.
+StandardScaler → to normalize numerical features.
+Sequential, Dense → to create and build the neural network.
+accuracy_score, confusion_matrix → to evaluate model performance.
+
+
+Cell 2 – Read the Dataset
+This reads the dataset using pandas and displays the first five rows (head()), and the total number of rows and columns (shape).
+It confirms that the data is correctly loaded into a DataFrame named df.
+
+
+Cell 3 – Define Features and Target Variable
+Removes unnecessary columns (RowNumber, CustomerId, Surname, Exited) since they don’t affect prediction.
+Sets X = input features and y = output target (Exited: 1 = customer left, 0 = stayed).
+Converts categorical columns (Gender, Geography) into numerical format using one-hot encoding.
+The final dataset is ready for model input.
+
+
+Cell 4 – Split Dataset into Training and Testing Sets
+Splits the data into:
+80% training (used to train the model)
+20% testing (used to evaluate model performance)
+The random_state=42 ensures that the split is reproducible.
+
+
+Cell 5 – Normalize the Data
+Neural networks work best when all features are on the same scale.
+StandardScaler standardizes data so that mean = 0 and standard deviation = 1.
+This makes training faster and prevents large-valued features from dominating.
+
+
+Cell 6 – Initialize and Build the Neural Network
+A Sequential model is created layer by layer:
+Input layer → 16 neurons (ReLU activation)
+Hidden layer → 8 neurons (ReLU activation)
+Output layer → 1 neuron (Sigmoid activation, since it’s binary classification).
+Model is compiled using Adam optimizer and Binary Crossentropy loss function.
+metrics=['accuracy'] helps monitor performance during training.
+
+
+Cell 7 – Train the Model 
+Trains the model for 20 epochs, meaning it passes through the training data 20 times.
+Batch size 32 means the model updates weights after every 32 samples.
+verbose=1 displays progress during training.
+The model learns to identify patterns between customer details and churn.
+
+
+Cell 8 – Predict and Evaluate the Model
+Uses the trained model to predict churn on test data.
+Converts prediction probabilities to binary (1 or 0) using threshold = 0.5.
+Calculates accuracy and displays the confusion matrix.
+The confusion matrix shows how many customers were correctly or incorrectly classified as leaving/staying.
+The model can be improved by increasing the number of epochs, adding more hidden layers, or tuning the learning rate and batch size for better accuracy.
+
+
+
+ALGORITHM -- 
+1. Start the program.
+2. Import all required libraries.
+3. Load the Churn_Modelling.csv dataset.
+4. Remove unnecessary columns and define features (X) and target (y).
+5. Encode categorical columns (like Gender, Geography).
+6. Split the data into training and testing sets (80:20).
+7. Normalize the data using StandardScaler().
+8. Build a neural network model using Sequential() with:
+9. Hidden layers (ReLU activation)
+10. Output layer (Sigmoid activation)
+11. Compile the model using Adam optimizer and binary_crossentropy loss.
+12. Train the model for a fixed number of epochs.
+13. Predict results on the test set.
+14. Display accuracy and confusion matrix.
+15. End

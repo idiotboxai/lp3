@@ -1,0 +1,57 @@
+Huffman Encoding is a greedy algorithm used for data compression.
+It assigns shorter binary codes to more frequent characters and longer codes to less frequent ones, which reduces the total number of bits required to represent data.
+
+In this program:
+
+We take characters and their frequencies as input.
+Each character is stored as a node in a min-heap (priority queue) using the heapq module.
+
+Then, we repeatedly:
+1. Pick the two smallest frequency nodes from the heap.
+2. Combine them into a new node with frequency = (left + right).
+3. Insert the new node back into the heap.
+This process continues until only one node remains — that node becomes the root of the Huffman Tree.
+We then traverse the tree:
+- Assign 0 for every left branch,
+- Assign 1 for every right branch.
+The resulting binary strings are the Huffman Codes.
+
+
+Greedy Choice :
+At every step, the algorithm chooses the two smallest frequencies to combine first —
+this is the greedy approach, which leads to an optimal prefix-free code.
+
+
+
+this program implements Huffman Encoding using the greedy method.
+It takes characters with their frequencies, forms a min-heap, and keeps combining the two smallest frequencies into a new node.
+This continues until one root node remains, creating the Huffman Tree.
+
+Then binary codes are assigned — 0 for left and 1 for right.
+Frequent characters get shorter codes, making data compression efficient.
+The algorithm is greedy because it always makes the locally optimal choice — combining the smallest frequencies first.
+Time complexity is O(n log n).
+
+
+
+
+OUTPUT -- 
+Here, we entered 3 characters (A, B, C) with frequencies 5, 7, and 10.
+The Huffman algorithm uses a greedy approach — it always combines the two smallest frequencies first to form a tree.
+
+--  Step-by-step working (simple explanation):
+Combine A(5) and B(7) → new node with frequency 12.
+Assign 0 to A and 1 to B.
+Now combine (A+B)=12 and C(10) → root node with 22 total.
+Assign 0 to C and 1 to (A+B) group.
+
+ Final Huffman Codes
+
+A → 00
+
+B → 01
+
+C → 1
+
+Characters with higher frequency (like C) get shorter codes,
+and characters with lower frequency (A, B) get longer codes.

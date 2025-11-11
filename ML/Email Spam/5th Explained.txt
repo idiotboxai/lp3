@@ -1,0 +1,63 @@
+Cell 1 – Import Libraries
+This cell imports all the libraries required for spam classification:
+pandas → for handling datasets.
+train_test_split → to divide data into training and testing sets.
+CountVectorizer → converts text data into numeric word-count features (if needed).
+KNeighborsClassifier → for KNN model.
+SVC → for Support Vector Machine model.
+accuracy_score, classification_report → for evaluating performance.
+
+
+Cell 2 – Read the Dataset
+Loads the emails.csv dataset.
+Displays dataset shape and first few columns to confirm it’s loaded correctly.
+Identifies the target column (used to indicate spam or not spam).
+
+
+Cell 3 – Clean and Prepare Data
+Cleans column names by removing spaces and newline characters.
+Drops unnecessary columns like IDs.
+Defines X (features) and y (target).
+Ensures all features are numeric, filling missing values with 0.
+Verifies no string columns remain.
+
+
+Cell 4 – Split Dataset
+Splits the dataset:
+80% for training (used to train both models)
+20% for testing (used for performance evaluation)
+random_state=42 ensures reproducibility.
+
+
+Cell 5 – Train and Test KNN Model
+Creates a KNN model with k = 3 neighbors.
+Trains it using the training data.
+Predicts email labels (spam/not spam) for the test data.
+Displays accuracy and a classification report (precision, recall, f1-score).
+
+
+Cell 6 – Train and Test SVM Model
+Builds a Support Vector Machine (SVM) with a linear kernel.
+Trains and tests on the same dataset.
+Prints accuracy and detailed classification metrics.
+
+
+Cell 7 – Compare KNN and SVM Performance
+Compares accuracy scores of both models.
+Prints which one performs better.
+This fulfills the “Analyze their performance” part of the question.
+
+
+
+ALGORITHM --
+1. Start the program.
+2. Import all required libraries.
+3. Load the emails.csv dataset.
+4. Clean the dataset and remove unnecessary columns.
+5. Separate features (X) and target (y).
+6. Split the data into training and testing sets (80:20).
+7. Train the KNN classifier and evaluate accuracy.
+8. Train the SVM classifier and evaluate accuracy.
+9. Compare both models’ performances.
+10. Display which model performs better.
+11. Stop the program.

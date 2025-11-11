@@ -1,0 +1,53 @@
+K-Means Clustering is an unsupervised learning algorithm used to group data into K clusters based on feature similarity.
+It works by randomly initializing K centroids and assigning each data point to the nearest centroid. Then the centroids are recomputed as the mean of all assigned points, and this process repeats until convergence.
+The Elbow Method is used to find the optimal number of clusters by plotting inertia (within-cluster sum of squares) versus K. The point where the decrease in inertia becomes less steep (the “elbow”) represents the ideal number of clusters.
+
+
+Cell 1 – Import Libraries -
+
+Imported all required libraries.
+pandas, numpy → data handling.
+matplotlib, seaborn → plotting graphs.
+KMeans → to apply K-Means clustering.
+StandardScaler → to normalize numerical features for better clustering.
+
+
+Cell 2 – Load Dataset
+Loaded dataset into a DataFrame.
+encoding='latin1' avoids text encoding errors.
+head() shows first 5 rows to verify correct loading.
+
+
+Cell 3 – Preprocessing
+Selected only numeric columns for clustering (K-Means works only on numbers).
+Removed missing values using dropna().
+Used StandardScaler to scale features — gives equal weight to all attributes.
+
+
+Cell 4 – Elbow Method (Find Best K)
+The Elbow Method helps choose the best number of clusters.
+inertia measures how close points are to their cluster center.
+The “elbow point” on the graph shows the optimal K (where curve bends).
+Usually, k=3 or k=4 is found optimal.
+
+
+Cell 5 – Apply K-Means
+Created K-Means model with 3 clusters (from Elbow result).
+.fit() trains the model.
+Added a new column Cluster to store which cluster each record belongs to.
+
+
+Cell 6 – Visualization
+Plotted a scatter plot using SALES and QUANTITYORDERED.
+Different colors show different clusters.
+Helps visualize how customers/products are grouped based on sales patterns.
+
+
+
+ALGORITHM - 
+Load and preprocess the dataset.
+Select only numeric columns and normalize the data.
+Use the Elbow Method to find the optimal K value.
+Apply the K-Means algorithm with that K.
+Assign each record to its cluster.
+Visualize clusters using scatter plot.

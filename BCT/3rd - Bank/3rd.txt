@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SimpleBank {
+    mapping(address => uint) balances;
+
+    // Deposit Ether into your account
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    // Withdraw Ether from your account
+    function withdraw(uint amount) public {
+        require(balances[msg.sender] >= amount, "Not enough balance");
+        payable(msg.sender).transfer(amount);
+        balances[msg.sender] -= amount;
+    }
+
+    // Check your account balance
+    function showBalance() public view returns (uint) {
+        return balances[msg.sender];
+    }
+}

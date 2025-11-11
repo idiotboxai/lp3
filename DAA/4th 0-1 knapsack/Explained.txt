@@ -1,0 +1,24 @@
+This program solves the 0/1 Knapsack Problem using the Dynamic Programming approach.
+The aim is to find the maximum profit that can be earned by selecting items within a given capacity, where each item can be either taken or not taken (no fractions allowed).
+
+The user enters the number of items, their weights and values, and the knapsack capacity.
+A 2D table (dp) is created where dp[i][w] stores the maximum profit possible using the first i items for capacity w.
+For each item, the program checks:
+
+- If the item’s weight ≤ current capacity, it decides whether to include or exclude it using the formula:
+dp[i][w] = max(value[i-1] + dp[i-1][w - weight[i-1]], dp[i-1][w])
+- Otherwise, the item is skipped: dp[i][w] = dp[i-1][w].
+
+After filling the table, the last cell dp[n][W] gives the maximum profit.
+For the given input (weights: 10, 20, 30; values: 60, 110, 150; capacity: 50), the best combination is taking items 2 and 3 → total profit = 260.
+
+Time Complexity: O(n × W)
+Space Complexity: O(n × W)
+
+
+
+OUTPUT - 
+Step-by-step output logic: 
+If we take Item 1 (10, 60) and Item 2 (20, 110) → total weight = 30, total value = 170
+If we take Item 2 (20, 110) and Item 3 (30, 150) → total weight = 50, total value = 260 
+If we take Item 1 and Item 3 → total weight = 40, total value = 210

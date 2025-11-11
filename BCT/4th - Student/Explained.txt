@@ -1,0 +1,37 @@
+1. The program defines a smart contract named StudentData in Solidity.
+
+2. It uses a structure (struct) to store details like roll number, name, age, and course.
+
+3. A dynamic array of students is declared to store multiple student records.
+
+this code is about storing and managing student information using Solidity.
+It uses a structure to hold details like roll number, name, age, and course,
+and a dynamic array to store multiple student records.
+The addStudent function adds new students,
+the getStudent function retrieves a student’s details by index,
+and totalStudents shows how many students are stored.
+It also includes fallback and receive functions to handle accidental Ether transfers safely.
+This program demonstrates how to use structures, arrays, and fallback functions in a smart contract.”
+
+
+
+
+struct Student               - Groups related student details like roll, name, age, course.   
+
+Student[] students           - Dynamic array to store multiple student records.               
+
+addStudent()                 - Adds a new student to the array using push().                  
+
+getStudent()                 - Displays student details by index number.                      
+
+require()                    - Ensures index is valid before accessing data.                  
+
+totalStudents()              - Returns total number of students stored.                       
+
+fallback()                   - Handles unknown function calls or wrong data safely.           
+
+receive()                    - Handles direct Ether transfers to the contract.                
+
+memory keyword               - Stores temporary data in memory while executing.               
+
+private keyword             - Hides the array so it can’t be accessed directly from outside. 

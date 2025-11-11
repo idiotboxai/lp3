@@ -1,0 +1,36 @@
+1. The program defines a smart contract named SimpleBank in Solidity.
+
+2. It uses a mapping to store each user’s wallet address and their Ether balance.
+
+3. The deposit() function is payable, which means it can receive Ether.
+- When a user deposits, the Ether value (msg.value) is added to their balance.
+
+4. The withdraw() function lets users withdraw Ether.
+- It uses require() to check if the balance is sufficient.
+- If yes, Ether is sent to the user using transfer(), and balance is updated.
+
+5. The showBalance() function is a view function that simply returns the user’s current balance.
+6. This contract shows how to handle deposits, withdrawals, and balances securely using mappings and payable functions.
+
+
+
+                                                    
+mapping(address => uint)          - Used to store each user’s wallet address with their balance. 
+               
+deposit()                         - Payable function — allows users to send Ether and adds it to their balance. 
+
+withdraw()                        - Lets users withdraw Ether if they have enough balance.                      
+
+require()                         - Checks condition (like balance) and stops function if false.      
+          
+transfer()                        - Sends Ether safely from contract to user’s wallet.                         
+ 
+showBalance()                     - Returns the current Ether balance of the user.                        
+      
+msg.sender                        - The address of the user who called the function.                     
+       
+msg.value                         - The amount of Ether sent with the transaction.                      
+        
+payable keyword                   - Allows a function or address to receive Ether.                        
+      
+view keyword                      - Means the function only reads data — doesn’t modify blockchain.             

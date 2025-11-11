@@ -1,0 +1,51 @@
+This program solves the Fractional Knapsack Problem using the Greedy Method.
+The aim is to fill a knapsack of limited capacity with items having different weights and values, such that the total value inside the knapsack is maximum.
+Unlike the 0/1 Knapsack, we are allowed to take fractions of items.
+
+1. Input Section
+- The user enters the number of items.
+- For each item, the program takes weight and value together on the same line.
+- Finally, the user enters the capacity of the knapsack.
+
+2. Sorting by Value-to-Weight Ratio -
+items = sorted(zip(weights, values), key=lambda x: x[1]/x[0], reverse=True)
+- Each item’s value/weight ratio is calculated.
+- The items are sorted in descending order of this ratio.
+- This step represents the greedy choice — always pick the most valuable item per unit weight first.
+
+3. Filling the Knapsack
+- The program iterates over the sorted items.
+- If an item can fit completely in the remaining capacity, it is taken fully.
+- If it cannot fit completely, the program takes only the fraction that fits and stops (since the bag is now full).
+- The total value is accumulated in res.
+
+Output Section
+The program displays which items (or fractions) were taken and shows the maximum total value achievable with the given capacity.
+
+Complexities :
+Time Complexity: O(n log n) (due to sorting)
+Space Complexity: O(1)
+
+
+VIVA - 
+this program solves the Fractional Knapsack problem using a greedy approach.
+It calculates each item’s value-to-weight ratio, sorts items by this ratio, and then keeps adding the highest-ratio items until the bag is full.
+If an item doesn’t fit completely, only a fraction is taken.
+This gives the maximum total value possible.
+The time complexity is O(n log n).
+
+
+
+
+OUTPUT - 
+How it works:
+
+1. Calculate value/weight ratio for each item:
+- Item 1 → 60/10 = 6
+- Item 2 → 100/20 = 5
+2. Sort items by ratio (highest first): Item 1 → Item 2
+3. Start filling the knapsack:
+- Take Item 1 fully (weight 10 fits perfectly).
+Remaining capacity = 15 - 10 = 5
+- Take 5 weight units of Item 2 (since only 5 capacity is left).
+Fractional value = 5 × (100/20) = 25

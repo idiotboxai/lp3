@@ -1,0 +1,52 @@
+This program implements the Job Sequencing with Deadlines problem using a Greedy Algorithm.
+The goal is to schedule jobs in such a way that the total profit is maximized, given that each job has a specific deadline and profit and only one job can be executed at a time.
+
+The program defines a Job class that stores each job’s ID, deadline, and profit.
+The user enters the number of jobs and their details.
+All the jobs are stored in a list.
+
+The jobs are then sorted in descending order of profit, so the most profitable job is considered first.
+This sorting step represents the greedy approach, where we always choose the locally optimal option — the job with the highest profit.
+
+Next, we create two lists:
+result[] → keeps track of which time slots are occupied,
+job_order[] → stores which job is scheduled in each slot.
+
+For each job, the program tries to assign it to the latest available time slot before its deadline.
+If a slot is found, the job is placed in that slot, and its profit is added to the total profit.
+If no slot is available before the deadline, the job is skipped.
+
+Finally, the program prints the selected job sequence and the maximum total profit obtained.
+
+This approach guarantees that the overall profit is maximized while ensuring that all jobs meet their deadlines.
+
+
+
+Complexities :
+
+Time Complexity: O(n²) (due to nested loops)
+Space Complexity: O(n)
+
+
+
+Viva -
+this program uses a greedy algorithm to schedule jobs for maximum profit.
+Each job has a deadline and profit, and we sort them by profit in descending order.
+Then each job is assigned to the latest available slot before its deadline.
+This ensures maximum profit while meeting deadlines.
+Time complexity is O(n²), and space complexity is O(n).
+
+
+
+OUTPUT EXPLAINED - 
+Here, we have 2 jobs:
+Job A → Deadline = 2, Profit = 100
+Job B → Deadline = 1, Profit = 19
+
+--  How it works:
+The program sorts jobs by profit (highest first) → A(100), B(19).
+There are 2 available slots (since max deadline = 2).
+Job A (highest profit) is assigned first to slot 2.
+Job B is then assigned to slot 1 (still free).
+
+So, both jobs can be scheduled within their deadlines.

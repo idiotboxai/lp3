@@ -1,0 +1,70 @@
+Cell 1 — Importing Libraries
+
+We import all the required Python libraries:
+
+pandas → for handling and cleaning dataset
+numpy → for mathematical calculations
+matplotlib & seaborn → for plotting graphs
+sklearn → for machine learning models (Linear & Random Forest) and evaluation metrics
+
+
+Cell 2 — Load Dataset - 
+The dataset is loaded using read_csv() function to analyze the structure, column names, and data types.
+
+
+Cell 3 — Dataset Info and Summary - 
+info() shows data types and missing values
+describe() gives statistical details like mean, min, max, etc.
+
+
+Cell 4 — Pre-processing the Dataset
+We remove:
+Missing values → using dropna()
+Duplicate entries → using drop_duplicates()
+
+
+Cell 5 — Identify Outliers
+Outliers are the extreme values that differ greatly from the rest of the data.
+They can affect model performance and accuracy.
+
+In this step, a boxplot is used to visualize outliers, and the IQR method (Interquartile Range) is applied to remove them.
+Formula used:
+IQR = Q3 - Q1
+Records lying outside [Q1 - 1.5×IQR, Q3 + 1.5×IQR] are treated as outliers and removed.
+
+
+
+Cell 6 — Correlation
+The correlation matrix shows how numerical variables are related to each other.
+It helps identify which features have a strong positive or negative impact on the target (fare_amount).
+numeric_only=True ensures only numeric columns are used.
+Values close to +1 = strong positive relation, −1 = strong negative relation, 0 = no relation.
+
+
+
+Cell 7 — Split Data
+X contains all numeric input features (independent variables).
+y is the target variable (fare_amount).
+train_test_split() divides data into training (80%) and testing (20%) sets.
+random_state=42 ensures reproducibility.
+
+
+Cell 8 — Linear Regression
+Linear Regression is used to predict continuous values (like fare amount).
+The model is trained using fit() and predictions are made with predict().
+Performance is measured using:
+R² Score: how well the model fits (closer to 1 = better)
+RMSE: average prediction error (lower = better)
+
+
+Cell 9 — Random Forest Regression
+Random Forest is an ensemble method using multiple decision trees.
+Each tree gives a prediction, and the average is taken as the final output.
+It usually gives higher accuracy than Linear Regression.
+Here, n_estimators=10 keeps runtime short for practical demo.
+
+
+Cell 10 — Model Comparison
+Compares both models based on R² score.
+Higher R² indicates a better model performance.
+This helps decide which algorithm fits the dataset better.
