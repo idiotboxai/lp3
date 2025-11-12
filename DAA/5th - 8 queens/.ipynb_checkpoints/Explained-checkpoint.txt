@@ -24,3 +24,23 @@ If not, the program backtracks (removes the last queen) and tries a different co
 The program starts with the first queen at (1,1),
 then places all remaining queens safely using backtracking,
 and prints a final 8×8 matrix where each 1 marks a queen’s safe position.
+
+
+Algorithm:
+Start with an empty board.
+
+Place a queen in a row.
+
+Before placing, check if the position is safe:
+
+No queen in same column
+
+No queen on left diagonal
+
+No queen on right diagonal
+
+If safe → place queen and move to next row.
+
+If no column is safe in a row → backtrack to previous row and move queen.
+
+Continue until all queens are successfully placed.
