@@ -1,0 +1,53 @@
+The Fibonacci series is a sequence of numbers in which each number is the sum of the two preceding ones.
+The first two numbers are 0 and 1, and the sequence continues as:
+0, 1, 1, 2, 3, 5, 8, 13, …
+
+Recursive Method:
+The function fib_recursive(n) calls itself to calculate previous Fibonacci terms.
+It counts the number of recursive function calls using a global variable rec_steps.
+Time Complexity: O(2ⁿ) (because many subproblems are recomputed).
+Space Complexity: O(n) (because of recursion stack).
+
+Iterative Method:
+The function fib_iterative(n) uses a simple loop to generate Fibonacci terms.
+A variable step counts the number of iterations (steps).
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+
+
+ALGORITHM -
+
+1. Start
+2. Initialize a = 0, b = 1, and step = 0
+3. Repeat loop n times
+- Print a
+- Compute a, b = b, a + b
+- Increment step
+4. Display total step count
+5. Stop
+
+
+It’s a Fibonacci program that shows both recursive and iterative approaches.
+Recursive calls itself again and again, so it takes more steps — O(2ⁿ) time.
+Iterative uses a loop and is faster — O(n) time.
+The step count shows how many operations each method performs.
+
+
+
+
+Explanation of Output
+
+For n = 4, the Fibonacci series is 0, 1, 1, 2 — both recursive and iterative methods give the same result.
+
+   Recursive Output --
+The function calls itself multiple times to calculate each term.
+For example, fib(3) calls fib(2) and fib(1), and fib(2) again calls fib(1) and fib(0).
+Because of these repeated calls, the step count becomes 10 for just 4 terms.
+Recursive method has O(2ⁿ) time complexity and O(n) space complexity due to the function call stack.
+
+   Iterative Output --
+The loop directly calculates each Fibonacci term one by one.
+For 4 terms, the loop runs 4 times, giving 4 steps total.
+It doesn’t repeat any work, so it’s faster and more efficient.
+Iterative method has O(n) time and O(1) space complexity.

@@ -1,0 +1,58 @@
+# Job Sequencing with Deadlines using Greedy Method
+
+class Job:
+    def __init__(self, job_id, deadline, profit):
+        self.job_id = job_id
+        self.deadline = deadline
+        self.profit = profit
+
+def job_sequencing(jobs, n):
+    # Step 1: Sort jobs by profit (highest first)
+    jobs.sort(key=lambda x: x.profit, reverse=True)
+
+    result = [False] * n      # Track free time slots
+    job_order = ['-1'] * n
+    total_profit = 0
+
+    # Step 2: Schedule jobs
+    for job in jobs:
+        for j in range(min(n, job.deadline) - 1, -1, -1):
+            if not result[j]:
+                result[j] = True
+                job_order[j] = job.job_id
+                total_profit += job.profit
+                break
+
+    # Step 3: Display result
+    sequence = [job for job in job_order if job != '-1']
+    print("\nSelected Job Sequence:", " → ".join(sequence))
+    print("Maximum Profit:", total_profit)
+
+
+# ---- Main ----
+n = int(input("Enter number of jobs: "))
+jobs = []
+
+for i in range(n):
+    job_id = input(f"Enter Job ID {i+1}: ")
+    deadline = int(input("Enter Deadline: "))
+    profit = int(input("Enter Profit: "))
+    jobs.append(Job(job_id, deadline, profit))
+
+job_sequencing(jobs, n)
+
+
+
+
+OUTPUT -
+Enter number of jobs: 2
+Enter Job ID 1: A
+Enter Deadline: 2
+Enter Profit: 100
+Enter Job ID 2: B
+Enter Deadline: 1
+Enter Profit: 19
+
+Selected Job Sequence: A → B
+Maximum Profit: 119
+

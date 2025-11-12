@@ -1,0 +1,85 @@
+Cell 1 – Import Libraries
+Imported all required libraries.
+pandas, numpy → data handling.
+train_test_split → to divide data into training and test sets.
+StandardScaler → to normalize numerical features.
+KNeighborsClassifier → KNN model from sklearn.
+metrics → for accuracy, precision, recall, and confusion matrix.
+
+
+Cell 2 – Load the Dataset
+Loaded the diabetes dataset into a DataFrame.
+.head() shows the first 5 rows to verify correct data loading.
+
+
+Cell 3 – Check Dataset Information
+.info() shows column names, data types, and non-null counts.
+isnull().sum() checks if any feature contains missing values.
+Confirms dataset is clean and ready for training.
+
+
+Cell – Replace Zero Values with Mean
+This cell replaces invalid zero values in important medical columns like Glucose, BloodPressure, SkinThickness, Insulin, and BMI with their mean values.
+Zeros in these columns represent missing or incorrect data, not actual measurements.
+Filling them with the mean helps clean the dataset and improves the accuracy of the KNN model.
+
+
+Cell 4 – Define Features and Target
+X contains independent features (like Glucose, BMI, etc.).
+y contains dependent variable Outcome (1 = diabetic, 0 = non-diabetic).
+Verified shapes to ensure correct splitting.
+
+
+Cell 5 – Normalize the Data
+KNN uses distance calculation, so normalization is essential.
+StandardScaler() converts all features to same scale (mean=0, std=1).
+This prevents large-scale features from dominating the distance metric.
+
+
+Cell 6 – Split into Training and Test Data
+Split dataset: 80% training and 20% testing.
+random_state=42 ensures reproducible results.
+The training set trains the model; the test set checks performance.
+
+
+Cell 7 – Initialize and Train KNN Model
+Created KNN model with k = 5 neighbors.
+fit() trains the model by storing the training data points.
+KNN doesn’t learn parameters; it stores data to compute distances later.
+
+
+Cell 8 – Make Predictions
+Model predicts class (0 or 1) for test data.
+Each prediction is based on the majority vote of its 5 nearest neighbors.
+
+
+Cell 9 – Evaluate Model Performance
+cm = confusion_matrix(y_test, y_pred)
+acc = accuracy_score(y_test, y_pred)
+error_rate = 1 - acc
+precision = precision_score(y_test, y_pred)
+recall = recall_score(y_test, y_pred)
+
+
+Cell 10 - Visualization
+This cell visually represents the confusion matrix using a heatmap.
+Each cell shows the number of correct and incorrect predictions made by the KNN model.
+The diagonal values indicate correct classifications, while off-diagonal values show errors.
+The heatmap helps to quickly understand how well the model performed.
+
+
+
+ALGORITHM -- 
+1. Start the program.
+2. Import all required libraries.
+3. Load the diabetes.csv dataset.
+4. Check for missing values.
+5. Separate the data into features (X) and target (y).
+6. Normalize the data using StandardScaler().
+7. Split the data into training and testing sets (80:20).
+8. Create the KNN model with k = 5.
+9. Train the model using the training data.
+10. Predict the results on test data.
+11. Find Confusion Matrix, Accuracy, Error Rate, Precision, and Recall.
+12. Show the Confusion Matrix Heatmap for visualization.
+13. Stop the program.

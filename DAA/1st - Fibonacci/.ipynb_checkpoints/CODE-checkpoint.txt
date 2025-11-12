@@ -1,0 +1,51 @@
+# Fibonacci Program (Recursive + Iterative) with Step Count
+
+# ----- Recursive Fibonacci -----
+rec_steps = 0
+def fib_recursive(n):
+    global rec_steps
+    rec_steps += 1
+    if n <= 1:
+        return n
+    return fib_recursive(n - 1) + fib_recursive(n - 2)
+
+# ----- Iterative Fibonacci -----
+def fib_iterative(n):
+    a, b = 0, 1
+    step = 0
+    print("Fibonacci Series (Iterative):", end=" ")
+    for i in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+        step += 1
+    print("\nTotal Steps (Iterative):", step)
+    return step
+
+# ----- Main -----
+n = int(input("Enter number of terms: "))
+
+print("\nFibonacci Series (Recursive):", end=" ")
+for i in range(n):
+    print(fib_recursive(i), end=" ")
+print("\nTotal Steps (Recursive):", rec_steps)
+
+fib_iterative(n)
+
+print("\n=== Time & Space Complexity ===")
+print("Recursive  → Time: O(2^n), Space: O(n)")
+print("Iterative  → Time: O(n), Space: O(1)")
+
+
+
+
+OUTPUT - 
+Enter number of terms:  4
+
+Fibonacci Series (Recursive): 0 1 1 2 
+Total Steps (Recursive): 10
+Fibonacci Series (Iterative): 0 1 1 2 
+Total Steps (Iterative): 4
+
+=== Time & Space Complexity ===
+Recursive  → Time: O(2^n), Space: O(n)
+Iterative  → Time: O(n), Space: O(1)

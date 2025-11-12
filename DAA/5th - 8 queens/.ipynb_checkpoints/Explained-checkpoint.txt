@@ -1,0 +1,26 @@
+This program solves the 8-Queens problem using backtracking.
+You first enter where to place the first queen on the board.
+Then the program tries to place the remaining queens row by row so that
+no two queens attack each other (no same column or diagonal).
+If a position is unsafe, it backtracks and tries another.
+When all 8 queens are safely placed, the final 8×8 matrix is printed.
+
+
+Viva --
+It uses backtracking — first queen is placed by user,
+then the program checks safe spots for others row by row.
+If a position causes conflict, it backtracks.
+Finally, all 8 queens are placed safely on the board.
+
+
+
+OUTPUT -
+After placing the first queen, the program tries to place the next queens row by row.
+For each new row, it checks if a position is safe — meaning no other queen is in the same column or diagonal.
+If a safe spot is found, the queen is placed there.
+If not, the program backtracks (removes the last queen) and tries a different column.
+
+
+The program starts with the first queen at (1,1),
+then places all remaining queens safely using backtracking,
+and prints a final 8×8 matrix where each 1 marks a queen’s safe position.
