@@ -67,4 +67,85 @@ Here, n_estimators=10 keeps runtime short for practical demo.
 Cell 10 — Model Comparison
 Compares both models based on R² score.
 Higher R² indicates a better model performance.
+
 This helps decide which algorithm fits the dataset better.
+
+#theory
+
+⭐ 1) Linear Model (Linear Regression) — Theory
+
+A linear model is a supervised learning algorithm used for predicting a continuous output.
+It assumes that the relationship between input features and the output is linear and can be expressed as a straight-line equation:
+
+
+Working
+
+The model finds the best-fitting line by minimizing the mean squared error (MSE) between actual and predicted values.
+This is done using the Least Squares Method.
+
+Advantages
+
+Simple to understand and implement
+
+Very fast
+
+Works well when data has a linear relationship
+
+Disadvantages
+
+Cannot capture non-linear patterns
+
+Sensitive to outliers
+
+Assumes independence between features
+
+Evaluation Metrics
+
+R² Score
+
+Mean Squared Error (MSE)
+
+Root Mean Squared Error (RMSE)
+
+⭐ 2) Tree-Based Model (Random Forest Regressor) — Theory
+
+A tree-based model uses decision trees to make predictions.
+A decision tree splits the data based on conditions (rules) to reach a prediction.
+
+A Random Forest is an ensemble method that builds multiple decision trees and outputs the average prediction of all trees.
+
+Working
+
+Multiple bootstrap samples are created from the training data.
+
+A decision tree is trained on each sample.
+
+At prediction time, all trees produce outputs.
+
+The final prediction is the mean of these outputs.
+
+Advantages
+
+Handles non-linear relationships
+
+Robust to noise and outliers
+
+Reduces overfitting due to averaging
+
+Works well on complex datasets
+
+Disadvantages
+
+Slower than linear models
+
+Hard to interpret
+
+Requires more memory
+
+Evaluation Metrics
+
+R² Score
+
+RMSE
+
+MAE (optional)
