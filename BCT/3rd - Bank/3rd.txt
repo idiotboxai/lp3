@@ -1,38 +1,38 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.30;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract Bank {
-    uint256 private balance;
-    address public accOwner;
+contract SimpleBank {
+
+    mapping(address => uint256) private balances;
+
+    event Deposit(address indexed user, uint256 amountWei);
+    event Withdraw(address indexed user, uint256 amountWei);
 
     constructor() payable {
-        accOwner = msg.sender;
-        balance = msg.value;
+        if (msg.value > 0) {
+            balances[msg.sender] += msg.value;
+            emit Deposit(msg.sender, msg.value);
+        }
     }
 
     function deposit() public payable {
-        balance += msg.value;
+        require(msg.value > 0, "Deposit must be greater than zero");
+
+        balances[msg.sender] += msg.value;
+        emit Deposit(msg.sender, msg.value);
     }
 
-    function withdraw(uint256 amount) public {
-        require(accOwner == msg.sender, "You are not the account owner");
-        require(amount > 0, "Withdrawal amount should be greater than 0");
-        require(amount <= balance, "Insufficient balance");
+    function withdraw(uint256 amountWei) public {
+        require(amountWei > 0, "Amount must be greater than zero");
+        require(balances[msg.sender] >= amountWei, "Insufficient balance");
 
-        balance -= amount;
-        payable(msg.sender).transfer(amount);
+        balances[msg.sender] -= amountWei;
+        payable(msg.sender).transfer(amountWei);
+
+        emit Withdraw(msg.sender, amountWei);
     }
 
-    function showBalance() public view returns (uint256) {
-        require(accOwner == msg.sender, "You are not the account owner");
-        return balance;
-    }
-
-    receive() external payable {
-        balance += msg.value;
-    }
-
-    fallback() external payable {
-        balance += msg.value;
+    function getBalanceWei() public view returns (uint256) {
+        return balances[msg.sender];
     }
 }
