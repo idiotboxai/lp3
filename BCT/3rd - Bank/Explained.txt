@@ -1,44 +1,100 @@
-⭐ Explanation of the Bank Smart Contract
+SimpleBank Contract (Easy Explanation)
 
-The program defines a smart contract named Bank in Solidity.
-This contract allows a user (the owner) to deposit, withdraw, and check their Ether balance.
+This contract works like a very basic online bank where users can deposit and withdraw Ether.
 
-The contract stores two important variables:
 
-balance → a private unsigned integer storing the Ether balance of the owner inside the contract
+---
 
-accOwner → the Ethereum address of the account owner
+1. balances mapping
 
-The constructor is payable and sets the deployer as the account owner.
+mapping(address => uint256) private balances;
 
-When the contract is deployed, the deployer becomes accOwner.
+Stores each user’s balance.
 
-Any Ether sent during deployment (msg.value) is stored as the initial balance.
+Example:
+balances[userAddress] = 5 ETH
 
-The deposit() function is payable, which means it can receive Ether.
 
-When the user calls deposit() and sends Ether with the transaction,
-that Ether (msg.value) is added to balance.
 
-The withdraw() function allows only the owner to withdraw Ether.
+---
 
-Uses require() to ensure:
-a) Only the owner can withdraw
-b) The amount must be greater than zero
-c) The balance must be enough
+2. Deposit and Withdraw Events
 
-If all conditions are true:
+These are used to log actions on the blockchain:
 
-The amount is subtracted from internal balance
+event Deposit(...)
+event Withdraw(...)
 
-Ether is transferred to the owner using transfer()
+They help track who deposited or withdrew money.
 
-The showBalance() function returns the owner’s balance.
 
-It is a view function, meaning it only reads from the blockchain.
+---
 
-The contract also has receive() and fallback() functions.
+3. constructor() payable
 
-Both are payable
+constructor() payable { ... }
 
-Both increase the balance when Ether is sent directly to the contract
+Runs only once during deployment.
+
+Allows the deployer to send Ether during contract creation.
+
+If Ether is sent, it is added to their balance.
+
+
+
+---
+
+4. deposit()
+
+function deposit() public payable
+
+Anyone can send Ether to the contract.
+
+msg.value = amount of Ether sent.
+
+The amount is added to the sender’s balance.
+
+Emits a Deposit event.
+
+
+Simple idea:
+User → sends Ether → contract stores it → user’s balance increases.
+
+
+---
+
+5. withdraw(amountWei)
+
+function withdraw(uint256 amountWei) public
+
+User requests to withdraw a certain amount.
+
+Checks:
+
+1. Amount > 0
+
+
+2. User has enough balance
+
+
+
+Deducts from their stored balance.
+
+Sends Ether back to the user.
+
+Emits a Withdraw event.
+
+
+Simple idea:
+User → takes money out → contract sends Ether back.
+
+
+---
+
+6. getBalanceWei()
+
+function getBalanceWei() public view returns (uint256)
+
+Shows the balance of the person calling the function.
+
+Purely read-only.
