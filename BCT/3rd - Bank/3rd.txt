@@ -2,21 +2,20 @@
 pragma solidity ^0.8.0;
 
 contract SimpleBank {
-    mapping(address => uint) balances;
+    mapping(address => uint) public balances;
 
-    // Deposit Ether into your account
-    function deposit() public payable {
-        balances[msg.sender] += msg.value;
+    // Deposit — user enters amount (no msg.value needed)
+    function deposit(uint amount) public {
+        balances[msg.sender] += amount;
     }
 
-    // Withdraw Ether from your account
+    // Withdraw — user enters amount
     function withdraw(uint amount) public {
         require(balances[msg.sender] >= amount, "Not enough balance");
-        payable(msg.sender).transfer(amount);
         balances[msg.sender] -= amount;
     }
 
-    // Check your account balance
+    // Show balance
     function showBalance() public view returns (uint) {
         return balances[msg.sender];
     }
