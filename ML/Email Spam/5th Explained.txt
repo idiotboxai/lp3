@@ -60,4 +60,72 @@ ALGORITHM --
 8. Train the SVM classifier and evaluate accuracy.
 9. Compare both models’ performances.
 10. Display which model performs better.
+
 11. Stop the program.
+
+⭐ K-Nearest Neighbors (KNN) – Theory
+
+K-Nearest Neighbors (KNN) is a supervised machine learning algorithm used for classification and regression.
+In classification, it predicts the class of a new data point by looking at the K closest training examples.
+
+✔ How KNN Works:
+
+Choose a value for K (number of neighbors).
+
+Compute the distance between the new data point and all training data.
+
+Select the K nearest neighbors.
+
+Use majority voting among these neighbors to assign a class.
+
+✔ Key Points:
+
+No training phase → lazy learner.
+
+Uses distance measures (Euclidean distance most common).
+
+Works best when data is small and well-scaled.
+
+✔ Advantages:
+
+Simple and easy to understand.
+
+No model assumptions.
+
+✔ Disadvantages:
+
+Slow for large datasets.
+
+Sensitive to irrelevant features and scaling.
+
+Not ideal for high-dimensional text data.
+
+⭐ Support Vector Machine (SVM) – Theory
+
+Support Vector Machine (SVM) is a supervised classification algorithm that finds the best separating boundary (hyperplane) between classes.
+
+SVM tries to maximize the margin, which is the distance between the separating boundary and the nearest data points (support vectors).
+
+✔ How SVM Works:
+
+Maps data into a high-dimensional space.
+
+Finds the optimal hyperplane separating classes.
+
+Maximizes the margin between classes for best separation.
+
+Uses kernel functions (Linear, RBF, Polynomial) to handle complex data.
+
+✔ Advantages:
+
+Works extremely well on high-dimensional data (like text).
+
+High accuracy and good generalization.
+
+Effective even when features are many.
+
+✔ Disadvantages:
+
+Training can be slower on large datasets.
+
+Requires parameter tuning (C, kernel).
