@@ -70,6 +70,27 @@ Higher R² indicates a better model performance.
 
 This helps decide which algorithm fits the dataset better.
 
+# Algorithm
+⭐ Linear Model (Linear Regression) — Simple Algorithm
+
+Step 1: Collect the dataset with input features and target variable.
+Step 2: Preprocess the data (remove missing values, convert types).
+Step 3: Separate the dataset into features (X) and target (y).
+Step 4: Split the dataset into training and testing sets.
+Step 5: Fit the linear regression model on the training data.
+Step 6: Use the trained model to predict values on the test set.
+Step 7: Evaluate the model using R² and RMSE.
+
+⭐ Tree-Based Model (Random Forest) — Simple Algorithm
+
+Step 1: Collect the dataset and preprocess it.
+Step 2: Split the data into input features (X) and target (y).
+Step 3: Divide the data into training and testing sets.
+Step 4: Create a Random Forest model by choosing number of trees.
+Step 5: Train the Random Forest on the training data.
+Step 6: Predict the output for the test set.
+Step 7: Evaluate performance using R² and RMSE.
+
 #theory
 
 ⭐ 1) Linear Model (Linear Regression) — Theory
@@ -149,3 +170,4 @@ R² Score
 RMSE
 
 MAE (optional)
+
